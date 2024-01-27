@@ -1,5 +1,22 @@
 .block {
-    width: 100px;
-    height: 100px;
+    width: 98px;
+    height: 98px;
     border: 1px solid black;
+}
+
+.board{
+    width: 53%;
+    display: grid;
+    grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% ;
+}
+
+.img{
+    width: 80px;
+    height: 80px;
+}
+
+.blocks{
+    border: 1px solid black;
+    height: 98px;
+    width: 98px;
 }
