@@ -25,8 +25,8 @@ export default function Castle(props){
     <Image
       src={castle}
       alt='castle'
-      width='100px'
-      height='100px'
+      width={'100px'}
+      height={'100px'}
       className={style.img}
       // id={i +'-'+ j}
 
