@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react" 
 import style from './board.module.css'
 import Castle from "../castle/castle"
-import castle from '../../public/o.JPG'
-import night from '../../public/p.png'
+import castle from '../../public/castle.JPG'
+import night from '../../public/night.png'
 import Image from "next/image"
 
 export default function Board(){
 
-  let piece
-  let pieceSpace
+  let piece // basically the dragstart
+  let pieceSpace // is the drag end, where the gragged piece might be placed
+  
   // const pieces = [ <Castle dragEnd={dragEnd} dragStart={dragStart} />  ]
   const pieces = [ castle, night ]
   //creates an Index for the blocks from 1-64
@@ -24,7 +25,7 @@ export default function Board(){
 
   function dragStart(event){
     piece = event.target
-    console.log(piece.src === 'http://localhost:3000/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fo.5fe2ea15.JPG&w=3840&q=75')
+    // console.log(event.target.id)
   }
 
   function onDrop(event){
@@ -32,10 +33,9 @@ export default function Board(){
   }
 
   function dragEnd(e){
+    console.log('start' + piece.id + 'end' + pieceSpace.id)
 
-    
-
-    if(piece.src === 'http://localhost:3000/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fo.5fe2ea15.JPG&w=3840&q=75'){
+    if(piece.src === 'http://localhost:3000/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcastle.f3e04c4c.JPG&w=1080&q=75'){
       castlePiece(piece, pieceSpace)
     }
     
@@ -82,13 +82,12 @@ export default function Board(){
 
 const castlePiece = function( piece, pieceSpace){
 
-  console.log(piece.id)
-
   const getcurrentPieceId = piece.id.split('-')
-  const getcurrentdropPieceId = piece.id.split('-')
+  const getcurrentdropPieceId = pieceSpace.id.split('-')
   const upAndDownMovement = getcurrentPieceId[1] === getcurrentdropPieceId[1]
+  const leftAndRightMovement = getcurrentPieceId[0] === getcurrentdropPieceId[0]
 
-  if(upAndDownMovement){
+  if(upAndDownMovement || leftAndRightMovement){
     const draggedpiece = piece.src
     const dropPiece = pieceSpace.src
   
@@ -98,6 +97,5 @@ const castlePiece = function( piece, pieceSpace){
     pieceSpace.srcset = ''
   }
 
-  // console.log(pieceSpace.innerText)
-  // console.log(piece.innerText)
+
 }

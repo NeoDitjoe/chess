@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import style from './castle.module.css'
-import castle from '../../public/o.JPG'
+import castle from '../../public/castle.JPG'
 
 export default function Castle(props){
 
