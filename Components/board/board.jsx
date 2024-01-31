@@ -25,7 +25,7 @@ export default function Board(){
 
   function dragStart(event){
     piece = event.target
-    // console.log(event.target.id)
+    console.log(event.target.src)
   }
 
   function onDrop(event){
