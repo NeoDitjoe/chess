@@ -34,8 +34,7 @@ export default function Board(){
 
   function dragEnd(e){
     console.log('start' + piece.id + 'end' + pieceSpace.id)
-
-    if(piece.src === 'http://localhost:3000/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcastle.f3e04c4c.JPG&w=1080&q=75'){
+    if(piece.src.includes('_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcastle.f3e04c4c.JPG&w=1080&q=75')){
       castlePiece(piece, pieceSpace)
     }
     
@@ -63,14 +62,6 @@ export default function Board(){
                   onDrop={onDrop}
                   onDragEnd={dragEnd}
                 />
-                // <div
-                //   className={style.blocks}
-                //   onDragOver={(e) => e.preventDefault()}
-                //   onDragEnter={(e) => e.preventDefault()}
-                //   onDrop={onDrop}
-                // >
-                //   {pieces[blocksIndeArr.shift() - 1]}
-                // </div>
               )
             })
           ))
