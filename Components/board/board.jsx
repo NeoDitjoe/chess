@@ -13,7 +13,7 @@ export default function Board() {
   let piece // the current dragged piece
   let pieceSpace // is the drag end, where the dragged piece might be placed
 
-  const pieces = [castle, night]
+  const pieces = [/* castle, */'', '' ,'' ,'' ,'' ,'' ,'' ,'' ,'' , '' , '' , '' , '' , '' , '' , '' , '' , '' , '' , '' , '' , '' , '' , '' , '' , '' , '' , '' , '' , '' , '' , '' , '' , '' , ''  ,night]
 
   //creates blocks from 1-64
   let blocksIndex = 0
@@ -28,7 +28,7 @@ export default function Board() {
 
   function dragStart(event) {
     piece = event.target
-    console.log(event.target.id)
+    // console.log(event.target.id)
   }
 
   function onDrop(event) {
