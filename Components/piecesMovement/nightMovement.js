@@ -26,7 +26,7 @@ const nightPiece = function (piece, pieceSpace) {
   const upRight = 
     currentPieceRow - 2 === dropOnRow
     && currentPiececolumn + 1 === dropOnColumn
-    || currentPieceRow + 1 === dropOnRow
+    || currentPieceRow - 1 === dropOnRow
     && currentPiececolumn + 2 === dropOnColumn
 
   const upLeft = 
@@ -34,13 +34,16 @@ const nightPiece = function (piece, pieceSpace) {
     && currentPiececolumn - 1 === dropOnColumn
     || currentPieceRow - 1 === dropOnRow
     && currentPiececolumn - 2 === dropOnColumn
+    
+    if (downRight || downLeft || upRight || upLeft)   {
+      piecesMove(piece, pieceSpace)
 
-  console.log('cR' + currentPieceRow + 'cC'+ currentPiececolumn + 'dR' +dropOnRow+ 'dC' +  dropOnColumn) 
-
-  if (downRight || downLeft || upRight || upLeft)   {
-    piecesMove(piece, pieceSpace)
-  }
-
+      if(pieceSpace){
+        piece.src = ''
+        piece.srcset = ''
+      }
+    }
+    
 }
 
 export default nightPiece
