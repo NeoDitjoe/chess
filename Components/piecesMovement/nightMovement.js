@@ -38,10 +38,6 @@ const nightPiece = function (piece, pieceSpace) {
     if (downRight || downLeft || upRight || upLeft)   {
       piecesMove(piece, pieceSpace)
 
-      if(pieceSpace){
-        piece.src = ''
-        piece.srcset = ''
-      }
     }
     
 }

@@ -7,10 +7,11 @@
     width: 53%;
     display: grid;
     grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% ;
+    text-align: center;
 }
 
 .img{
-    width: 100%;
+    width: 70%;
     height: 80px;
 }
 

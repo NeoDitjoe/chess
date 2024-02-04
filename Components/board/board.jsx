@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react"
 import style from './board.module.css'
-import castleP11 from '../../public/castleP11.JPG' //P11 = Player 1, 1st castle
-import nightP11 from '../../public/nightP11.png'//player 1, night 1
 import Image from "next/image"
+import pieces from "../pieces" // keeps an array of pieces
+
 
 //pieceMove
-import castlePiece from "../piecesMovement/castleMovement"
-import nightPiece from "../piecesMovement/nightMovement"
+import castlePiece from "../piecesMovement/castleMovement"//piece logic
+import nightPiece from "../piecesMovement/nightMovement"// piece logic
 
 export default function Board() {
 
   let piece // the current dragged piece
   let pieceSpace // is the drag end, where the dragged piece might be placed
 
-  const pieces = [ castleP11, nightP11, '', '' , '', '' , nightP11, castleP11]
 
   //creates blocks from 1-64
   let blocksIndex = 0
@@ -28,7 +27,7 @@ export default function Board() {
 
   function dragStart(event) {
     piece = event.target
-    // console.log(event.target.id)
+    console.log(event.target.src)
   }
 
   function onDrop(event) {
@@ -38,12 +37,12 @@ export default function Board() {
   function dragEnd(e) {
 
     //player 1, number 1 castle 
-    if (piece.src.includes('_next/image?url=%2F_next%2Fstatic%2Fmedia%2FcastleP11.f3e04c4c.JPG&w=1080&q=75')) {
+    if (piece.src.includes('_next/image?url=%2F_next%2Fstatic%2Fmedia%2FcastleBlack.5c11874f.png&w=384&q=75')) {
       castlePiece(piece, pieceSpace)
     }
 
     //player 1, number 1 night
-    if(piece.src.includes('_next/image?url=%2F_next%2Fstatic%2Fmedia%2FnightP11.29d6a42e.png&w=1080&q=75')) {
+    if(piece.src.includes('_next/image?url=%2F_next%2Fstatic%2Fmedia%2FnightBlack.cdf2a2ca.png&w=384&q=75')) {
       nightPiece(piece, pieceSpace)
     }
 
