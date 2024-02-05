@@ -18,13 +18,13 @@ const queenMovement = function (piece, pieceSpace) {
 
   //bishop logic
   const num = currentPieceRow - currentPiececolumn
-  const leftUp = dropOnRow - dropOnColumn === num
+  const leftUpRightDown = dropOnRow - dropOnColumn === num
 
-  const upright =
+  const RightupLeftDown =
     dropOnColumn + dropOnRow
     === currentPiececolumn + currentPieceRow
 
-  if (upDownLeftRight || leftUp || upright) {
+  if (upDownLeftRight || leftUpRightDown || RightupLeftDown) {
 
     piecesMove(piece, pieceSpace)
   }
