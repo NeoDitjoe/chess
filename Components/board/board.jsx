@@ -9,6 +9,7 @@ import castlePiece from "../piecesMovement/castleMovement"//piece logic
 import nightPiece from "../piecesMovement/nightMovement"// piece logic
 import bishopPiece from "../piecesMovement/bishopMovement"
 import pawnPiece from "../piecesMovement/pawnMovement"
+import queenMovement from "../piecesMovement/queenMovement"
 
 export default function Board() {
 
@@ -41,15 +42,22 @@ export default function Board() {
       castlePiece(piece, pieceSpace)
     }
 
-    if(piece.src.includes('night')) {
+    if (piece.src.includes('night')) {
       nightPiece(piece, pieceSpace)
     }
 
-    if(piece.src.includes('bishop')){
+    if (piece.src.includes('bishop')) {
       bishopPiece(piece, pieceSpace)
     }
 
-    pawnPiece(piece, pieceSpace)
+    if (piece.src.includes('queen')) {
+      queenMovement(piece, pieceSpace)
+    }
+
+    if (piece.src.includes('pawn')) {
+      pawnPiece(piece, pieceSpace)
+    }
+
   }
 
   return (
@@ -63,13 +71,13 @@ export default function Board() {
               const Y = blocksIndex % 2 === 0
               const Z = blocksIndex % 2 !== 0
 
-              const row1 = blocksIndex < 9 && Y 
+              const row1 = blocksIndex < 9 && Y
               const row2 = blocksIndex > 8 && blocksIndex < 16 && Z
               const row3 = blocksIndex > 16 && blocksIndex < 25 && Y
               const row4 = blocksIndex > 24 && blocksIndex < 33 && Z
               const row5 = blocksIndex > 32 && blocksIndex < 41 && Y
               const row6 = blocksIndex > 40 && blocksIndex < 48 && Z
-              const row7 = blocksIndex > 48 && blocksIndex < 57&& Y
+              const row7 = blocksIndex > 48 && blocksIndex < 57 && Y
               const row8 = blocksIndex > 56 && blocksIndex < 64 && Z
 
               const colorBlocks = row1 || row2 || row3 || row4 || row5 || row6 || row7 || row8

@@ -34,6 +34,18 @@ const pieces = [ castleBlack, nightBlack, bishopBlack ,
 
 export default pieces
 
+/**
+ * 
+ * @param {string} piece current piece 
+ * @param {pieceSpace} pieceSpace where piece wil be dropped
+ * @returns { list of id}
+ * 
+ * {@link dropOnColumn} - The column ID where the piece will be dropped
+ * {@link dropOnRow} - The row ID where the piece will be dropped
+ * {@link currentPiececolumn} - The column ID on which the dragged piece is
+ * {@link currentPieceRow} - The row ID on which the dragged piece is
+ * 
+ */
 export function piecesId(piece, pieceSpace){
   const currentPieceRow = Number(piece.id.split('-')[0])
   const currentPiececolumn = Number(piece.id.split('-')[1])
