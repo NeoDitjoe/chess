@@ -7,6 +7,7 @@ import pieces from "../pieces" // keeps an array of pieces
 //pieceMove
 import castlePiece from "../piecesMovement/castleMovement"//piece logic
 import nightPiece from "../piecesMovement/nightMovement"// piece logic
+import bishopPiece from "../piecesMovement/bishopMovement"
 
 export default function Board() {
 
@@ -27,7 +28,6 @@ export default function Board() {
 
   function dragStart(event) {
     piece = event.target
-    console.log(event.target.src)
   }
 
   function onDrop(event) {
@@ -36,14 +36,16 @@ export default function Board() {
 
   function dragEnd(e) {
 
-    //player 1, number 1 castle 
-    if (piece.src.includes('_next/image?url=%2F_next%2Fstatic%2Fmedia%2FcastleBlack.5c11874f.png&w=384&q=75')) {
+    if (piece.src.includes('castle')) {
       castlePiece(piece, pieceSpace)
     }
 
-    //player 1, number 1 night
-    if(piece.src.includes('_next/image?url=%2F_next%2Fstatic%2Fmedia%2FnightBlack.cdf2a2ca.png&w=384&q=75')) {
+    if(piece.src.includes('night')) {
       nightPiece(piece, pieceSpace)
+    }
+
+    if(piece.src.includes('bishop')){
+      bishopPiece(piece, pieceSpace)
     }
 
   }
@@ -70,7 +72,7 @@ export default function Board() {
 
               const colorBlocks = row1 || row2 || row3 || row4 || row5 || row6 || row7 || row8
               return (
-                <div className={colorBlocks ? style.block : ''}>
+                <div className={colorBlocks ? style.block : style.blockB}>
                   <Image
                     src={pieces[blocksIndeArr.shift() - 1]}
                     width='100px'

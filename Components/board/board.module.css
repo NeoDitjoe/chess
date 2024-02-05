@@ -1,6 +1,14 @@
 .block {
     background-color: gray;
-    /* border: 1px solid black; */
+    border: 1px solid black;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.blockB {
+    border: 1px solid black;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .board{
@@ -11,7 +19,7 @@
 }
 
 .img{
-    width: 70%;
+    width: 100%;
     height: 80px;
 }
 

@@ -1,12 +1,13 @@
 import piecesMove from "./AdragandDrop"
+import { piecesId } from "../pieces"
 
 const nightPiece = function (piece, pieceSpace) {
 
-  const currentPieceRow = Number(piece.id.split('-')[0])
-  const currentPiececolumn = Number(piece.id.split('-')[1])
-
-  const dropOnRow = Number(pieceSpace.id.split('-')[0])
-  const dropOnColumn = Number(pieceSpace.id.split('-')[1])
+  const { 
+    currentPieceRow, currentPiececolumn ,
+    dropOnRow, dropOnColumn
+  
+  } = piecesId(piece, pieceSpace)
 
   /**
    * {@link downSplit} boolean - 

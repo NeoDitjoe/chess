@@ -16,6 +16,7 @@ import pawnWhite from '../public/pawnWhite.png'
 
 const pieces = [ castleBlack, nightBlack, bishopBlack , 
   queenBlack, kingBlack, bishopBlack, nightBlack, castleBlack,
+  
   pawnBlack, pawnBlack, pawnBlack, pawnBlack, pawnBlack, 
   pawnBlack, pawnBlack, pawnBlack,
 
@@ -32,3 +33,18 @@ const pieces = [ castleBlack, nightBlack, bishopBlack ,
 ]
 
 export default pieces
+
+export function piecesId(piece, pieceSpace){
+  const currentPieceRow = Number(piece.id.split('-')[0])
+  const currentPiececolumn = Number(piece.id.split('-')[1])
+
+  const dropOnRow = Number(pieceSpace.id.split('-')[0])
+  const dropOnColumn = Number(pieceSpace.id.split('-')[1])
+
+  return{ 
+    currentPieceRow,
+    currentPiececolumn,
+    dropOnRow,
+    dropOnColumn
+  }
+}
