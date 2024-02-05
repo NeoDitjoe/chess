@@ -8,6 +8,7 @@ import pieces from "../pieces" // keeps an array of pieces
 import castlePiece from "../piecesMovement/castleMovement"//piece logic
 import nightPiece from "../piecesMovement/nightMovement"// piece logic
 import bishopPiece from "../piecesMovement/bishopMovement"
+import pawnPiece from "../piecesMovement/pawnMovement"
 
 export default function Board() {
 
@@ -48,6 +49,7 @@ export default function Board() {
       bishopPiece(piece, pieceSpace)
     }
 
+    pawnPiece(piece, pieceSpace)
   }
 
   return (
