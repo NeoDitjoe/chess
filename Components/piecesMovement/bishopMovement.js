@@ -9,45 +9,14 @@ const bishopPiece = function (piece, pieceSpace) {
 
   } = piecesId(piece, pieceSpace)
 
-  // const upLeft = currentPieceRow > dropOnRow
-  //   && currentPiececolumn > dropOnColumn 
-  //   && currentPieceRow !== dropOnRow
+  const num = currentPieceRow - currentPiececolumn
+  const leftUp = dropOnRow - dropOnColumn === num
 
-  // const upRightAndDL = currentPiececolumn < dropOnColumn
-  // && currentPieceRow !== dropOnRow
+  const upright = 
+    dropOnColumn + dropOnRow 
+    === currentPiececolumn + currentPieceRow
 
-  // const downLeft = currentPieceRow < dropOnRow
-  // && currentPiececolumn > dropOnColumn
-  // && currentPieceRow !== dropOnRow
-
-  const restrictRowAndColumn = 
-  currentPieceRow !== dropOnRow 
-  && currentPiececolumn !== dropOnColumn
-
-  //white right 
-  const upLeft = 
-  // currentPieceRow > dropOnRow
-  // && currentPiececolumn > dropOnColumn 
-  // && currentPieceRow - currentPiececolumn == 2
-  // &&  dropOnRow - dropOnColumn == 2
-  currentPieceRow > dropOnRow 
-  && currentPiececolumn > dropOnColumn 
-  || currentPieceRow === currentPiececolumn
-  || currentPieceRow - currentPiececolumn == 2
-  ||currentPiececolumn - currentPieceRow == 2
-  || dropOnRow == dropOnColumn
-  || dropOnRow - dropOnColumn == 2
-  || dropOnColumn - dropOnRow == 2
-
-  const upRight = 
-    currentPieceRow > dropOnRow
-    && currentPiececolumn < dropOnColumn
-
-
-
-  console.log('cR' + currentPieceRow, ' cC' + currentPiececolumn + ' dR' + dropOnRow + ' dC' + dropOnColumn)
-  if (upLeft) {
-  // if (upLeft || upRightAndDL || downLeft) {
+  if (leftUp || upright) {
     piecesMove(piece, pieceSpace)
   }
 }
