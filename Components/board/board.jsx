@@ -10,6 +10,7 @@ import nightPiece from "../piecesMovement/nightMovement"// piece logic
 import bishopPiece from "../piecesMovement/bishopMovement"
 import pawnPiece from "../piecesMovement/pawnMovement"
 import queenMovement from "../piecesMovement/queenMovement"
+import kingMovement from "../piecesMovement/kingMovement"
 
 export default function Board() {
 
@@ -56,6 +57,10 @@ export default function Board() {
 
     if (piece.src.includes('pawn')) {
       pawnPiece(piece, pieceSpace)
+    }
+
+    if (piece.src.includes('king')) {
+      kingMovement(piece, pieceSpace)
     }
 
   }
