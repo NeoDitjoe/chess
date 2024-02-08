@@ -94,6 +94,7 @@ export default function Board() {
                     height='100px'
                     className={style.img}
                     id={i + '-' + j}
+                    alt={i + '-' + j}
 
                     draggable
                     onDragStart={dragStart}

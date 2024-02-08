@@ -11,16 +11,24 @@ const kingMovement = function (piece, pieceSpace) {
     currentPieceRow
   } = piecesId(piece, pieceSpace)
 
-  const columnA = dropOnColumn === currentPiececolumn - 1
-  const columnB = dropOnColumn === currentPiececolumn + 1
+  const down = currentPiececolumn === dropOnColumn && currentPieceRow + 1 === dropOnRow
+  const up = currentPiececolumn === dropOnColumn && currentPieceRow - 1 === dropOnRow
 
-  const rowA = dropOnRow === currentPieceRow - 1
-  const rowB = dropOnRow === currentPieceRow + 1
+  const right = currentPieceRow === dropOnRow && currentPiececolumn + 1 === dropOnColumn
+  const left = currentPieceRow === dropOnRow && currentPiececolumn - 1 === dropOnColumn
 
-  if (columnA || columnB || rowA) {
+  const rightDown = currentPieceRow + currentPiececolumn === dropOnRow + dropOnColumn && currentPieceRow + 1 === dropOnRow
+  const rightUp = currentPieceRow + dropOnColumn === currentPiececolumn + dropOnRow && currentPieceRow - 1 ===dropOnRow
 
+  const leftUp = currentPieceRow + currentPiececolumn === dropOnRow + dropOnColumn && currentPieceRow - 1 === dropOnRow
+  const leftDown = currentPieceRow + dropOnColumn === currentPiececolumn + dropOnRow && currentPieceRow + 1 ===dropOnRow
+
+  if(down ||  up || right|| left || leftDown || leftUp || rightUp || rightDown){
     piecesMove(piece, pieceSpace)
   }
+
+  console.log("Crow" + currentPieceRow + 'Ccolumn' + currentPiececolumn) 
+  console.log("Drow" + dropOnRow + 'Dcolumn' + dropOnColumn) 
 }
 
 export default kingMovement
