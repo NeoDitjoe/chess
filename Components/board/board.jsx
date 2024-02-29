@@ -40,6 +40,10 @@ export default function Board() {
 
   function dragEnd(e) {
 
+    /**
+     * This function is to block a player from removing its pieces
+     * by checking its color 
+     */
     if (piece.src.includes('Black') 
       && !pieceSpace.src.includes('Black') 
       || piece.src.includes('White')
