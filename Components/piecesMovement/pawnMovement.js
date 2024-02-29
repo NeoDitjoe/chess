@@ -1,5 +1,5 @@
 import pieces, { piecesId } from "../pieces"
-const { default: piecesMove } = require("./AdragandDrop")
+const { default: piecesMove, pawnPieceMove } = require("./AdragandDrop")
 
 const pawnPiece = function (piece, pieceSpace) {
 
@@ -50,7 +50,7 @@ function whitePawn(piece, pieceSpace) {
 
   if (noBackMovement && moves) {
 
-    piecesMove(piece, pieceSpace)
+    pawnPieceMove(piece, pieceSpace)
   }
 
 }

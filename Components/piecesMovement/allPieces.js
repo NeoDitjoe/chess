@@ -23,11 +23,11 @@ export default function allPiecesMovement(piece, pieceSpace){
     queenMovement(piece, pieceSpace)
   }
 
-  if (piece.src.includes('pawn')) {
-    pawnPiece(piece, pieceSpace)
-  }
-
   if (piece.src.includes('king')) {
     kingMovement(piece, pieceSpace)
+  }
+
+  if (piece.src.includes('pawn')) {
+    pawnPiece(piece, pieceSpace)
   }
 }
