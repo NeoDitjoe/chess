@@ -5,7 +5,7 @@ import pieces from "../pieces" // keeps an array of pieces
 
 
 //pieceMove
-import castlePiece from "../piecesMovement/castleMovement"//piece logic
+import castlePiece, { castleOpenSpace } from "../piecesMovement/castleMovement"//piece logic
 import nightPiece from "../piecesMovement/nightMovement"// piece logic
 import bishopPiece from "../piecesMovement/bishopMovement"
 import pawnPiece from "../piecesMovement/pawnMovement"
@@ -15,7 +15,7 @@ import kingMovement from "../piecesMovement/kingMovement"
 export default function Board() {
 
   let piece // the current dragged piece
-  let pieceSpace // is the drag end, where the dragged piece might be placed
+  let pieceSpace // where the dragged piece is placed
 
 
   //creates blocks from 1-64
@@ -31,6 +31,7 @@ export default function Board() {
 
   function dragStart(event) {
     piece = event.target
+
   }
 
   function onDrop(event) {
@@ -39,28 +40,35 @@ export default function Board() {
 
   function dragEnd(e) {
 
-    if (piece.src.includes('castle')) {
-      castlePiece(piece, pieceSpace)
-    }
+    if (piece.src.includes('Black') 
+      && !pieceSpace.src.includes('Black') 
+      || piece.src.includes('White')
+      && !pieceSpace.src.includes('White')
+    ) {
 
-    if (piece.src.includes('night')) {
-      nightPiece(piece, pieceSpace)
-    }
+      if (piece.src.includes('castle')) {
+        castlePiece(piece, pieceSpace)
+      }
 
-    if (piece.src.includes('bishop')) {
-      bishopPiece(piece, pieceSpace)
-    }
+      if (piece.src.includes('night')) {
+        nightPiece(piece, pieceSpace)
+      }
 
-    if (piece.src.includes('queen')) {
-      queenMovement(piece, pieceSpace)
-    }
+      if (piece.src.includes('bishop')) {
+        bishopPiece(piece, pieceSpace)
+      }
 
-    if (piece.src.includes('pawn')) {
-      pawnPiece(piece, pieceSpace)
-    }
+      if (piece.src.includes('queen')) {
+        queenMovement(piece, pieceSpace)
+      }
 
-    if (piece.src.includes('king')) {
-      kingMovement(piece, pieceSpace)
+      if (piece.src.includes('pawn')) {
+        pawnPiece(piece, pieceSpace)
+      }
+
+      if (piece.src.includes('king')) {
+        kingMovement(piece, pieceSpace)
+      }
     }
 
   }
@@ -88,6 +96,7 @@ export default function Board() {
               const colorBlocks = row1 || row2 || row3 || row4 || row5 || row6 || row7 || row8
               return (
                 <div className={colorBlocks ? style.block : style.blockB}>
+
                   <Image
                     src={pieces[blocksIndeArr.shift() - 1]}
                     width='100px'
