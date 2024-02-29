@@ -1,16 +1,7 @@
-import { useEffect, useState } from "react"
 import style from './board.module.css'
 import Image from "next/image"
 import pieces from "../pieces" // keeps an array of pieces
-
-
-//pieceMove
-import castlePiece, { castleOpenSpace } from "../piecesMovement/castleMovement"//piece logic
-import nightPiece from "../piecesMovement/nightMovement"// piece logic
-import bishopPiece from "../piecesMovement/bishopMovement"
-import pawnPiece from "../piecesMovement/pawnMovement"
-import queenMovement from "../piecesMovement/queenMovement"
-import kingMovement from "../piecesMovement/kingMovement"
+import allPiecesMovement from "../piecesMovement/allPieces"
 
 export default function Board() {
 
@@ -50,29 +41,7 @@ export default function Board() {
       && !pieceSpace.src.includes('White')
     ) {
 
-      if (piece.src.includes('castle')) {
-        castlePiece(piece, pieceSpace)
-      }
-
-      if (piece.src.includes('night')) {
-        nightPiece(piece, pieceSpace)
-      }
-
-      if (piece.src.includes('bishop')) {
-        bishopPiece(piece, pieceSpace)
-      }
-
-      if (piece.src.includes('queen')) {
-        queenMovement(piece, pieceSpace)
-      }
-
-      if (piece.src.includes('pawn')) {
-        pawnPiece(piece, pieceSpace)
-      }
-
-      if (piece.src.includes('king')) {
-        kingMovement(piece, pieceSpace)
-      }
+      allPiecesMovement(piece, pieceSpace)
     }
 
   }
